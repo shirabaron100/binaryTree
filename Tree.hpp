@@ -3,17 +3,21 @@
  namespace ariel{
    struct node
    {
-        int data;
-        struct node* left;
-        struct node* right;
+       int data;
+    node* left;
+    node* right;
+    node() {}
+    ~node() {}
+      
    };
    
    class Tree{
     private:
-    
+     node *Root=NULL; 
+        int mysize=0;
     
     public:
-          node *Root;
+
         Tree();
         void insert(int i);
         void remove (int i);
@@ -24,6 +28,9 @@
         int left(int i);
         int right(int i);
         void print();
+        void printTreeRec(node *root);
+       node* deleteNode( node* root, int key);
+        node* minValueNode(node* node);
      };
  }
  

@@ -28,6 +28,7 @@ int main() {
     cout << "threetree: size=" << threetree.size() << " root=" << threetree.root() << endl << "   ";  // size=3, root=5.
     threetree.print();
     cout << endl;
+    
       
     cout << threetree.size()      // should print 3
          << threetree.parent(3)   // should print 5

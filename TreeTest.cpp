@@ -1,6 +1,6 @@
 /**
  * Examples of automatic tests for the exercise on binary trees.
- *
+ * 
  * @author Erel Segal-Halevi
  * @since 2019-02
  */
@@ -25,7 +25,15 @@ ariel::Tree emptyRoot;
 
   badkan::TestCase tc("Binary tree");
   tc
-  //trying to remove a node that doesnt exist
+// .CHECK_OK   (emptytree.insert(5))
+// .CHECK_OK   (emptytree.insert(8))
+// .CHECK_OK   (emptytree.insert(3))
+// .CHECK_OK   (emptytree.remove(3))
+// .CHECK_EQUAL(emptytree.root(), 5)
+// .CHECK_OK   (emptytree.print())
+// .print();
+
+  // trying to remove a node that doesnt exist
 .CHECK_THROWS(empty.remove(5))
 
 //trying to insert a node that allready in the tree
@@ -64,10 +72,10 @@ empty.insert(5);
 //trying to insert a node that allready in the tree
 tc.CHECK_THROWS(threetree.insert(5));
 
-//trying to remove all the number 
+// trying to remove all the number 
 for (int j=0;j<100;j++)
 {
-tc.CHECK_THROWS(emptytree.remove(j));
+tc.CHECK_OK(emptytree.remove(j));
 }
 
 //trying to get a root from empty tree
