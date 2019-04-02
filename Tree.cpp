@@ -108,14 +108,14 @@ using namespace ariel;
   
         // node with two children: Get the inorder successor (smallest 
         // in the right subtree) 
-        node* temp = minValueNode(root->left); 
+        node* temp = minValueNode(root->right); 
 
 
         // Copy the inorder successor's content to this node 
         root->data = temp->data; 
   
         // Delete the inorder successor 
-        root->left = deleteNode(root->left, temp->data); 
+        root->right = deleteNode(root->right, temp->data); 
     } 
     return root; 
 } 
