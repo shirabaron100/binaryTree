@@ -12,13 +12,12 @@ using namespace ariel;
         node *foundI=Root;
         node *Parent;
 
-         std::cout << "Root" << Root <<std::endl; 
+        
         if(Root==NULL)
         { 
-            std::cout << "Root" << Root <<std::endl; 
+            
          Root=n;
          mysize++;
-         std::cout << "Root" << Root <<std::endl;
          return;
          
         }
@@ -29,11 +28,6 @@ using namespace ariel;
         }
         else 
          {
-             std::cout << "Root" << Root <<std::endl;
-             std::cout << "else in the insert" << std::endl;
-             std::cout << Root->data << std::endl;
-             std::cout << Root->right << std::endl;
-              std::cout << i << std::endl;
              mysize++;
              while(foundI!=NULL) 
               {
@@ -54,7 +48,7 @@ using namespace ariel;
             }
             else
             {
-                 std::cout << "the right boy" << std::endl;
+               
                 Parent->right=n;
             }   
      }
@@ -111,12 +105,11 @@ using namespace ariel;
              root=NULL;
             return temp; 
         } 
-    std::cout << "hadaarrrr" <<std::endl;
+  
         // node with two children: Get the inorder successor (smallest 
         // in the right subtree) 
         node* temp = minValueNode(root->left); 
 
-    std::cout << temp->data <<std::endl;
 
         // Copy the inorder successor's content to this node 
         root->data = temp->data; 
