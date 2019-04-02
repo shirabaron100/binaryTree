@@ -11,16 +11,19 @@ using namespace ariel;
         node *foundI=Root;
         node *Parent;
         if(Root==NULL)
-        {
+        {  
          Root=n;
          mysize++;
+         return;
         }
      else if(contains(i)==true)
         {
              std::__throw_bad_exception();
+             
         }
         else 
          {
+             
              mysize++;
              while(foundI!=NULL) 
               {
@@ -42,7 +45,7 @@ using namespace ariel;
             else
             {
                 Parent->right=n;
-             }   
+            }   
      }
     }
     void Tree::remove (int i){
@@ -57,15 +60,13 @@ using namespace ariel;
         else
         {
             node *temp=Root;
-            Root=deleteNode(temp,i);
+            node *hadar=deleteNode(temp,i);
+            Root=hadar;
             mysize--;
-        }
-        
+        }  
     }
-
-
     struct node* Tree::deleteNode( node* root, int key) 
-{ 
+    { 
     // base case 
     if (root == NULL) 
     return root; 
@@ -87,21 +88,23 @@ using namespace ariel;
         // node with only one child or no child 
         if (root->left == NULL) 
         { 
-            struct node *temp = root->right; 
-            free(root); 
+         node *temp = root->right; 
+        delete(root); 
             return temp; 
         } 
         else if (root->right == NULL) 
         { 
             struct node *temp = root->left; 
-            free(root); 
+            delete(root); 
             return temp; 
         } 
-  
+    std::cout << "hadaarrrr" <<std::endl;
         // node with two children: Get the inorder successor (smallest 
         // in the right subtree) 
-        struct node* temp = minValueNode(root->right); 
-  
+         node* temp = minValueNode(root->right); 
+
+    std::cout << temp->data <<std::endl;
+
         // Copy the inorder successor's content to this node 
         root->data = temp->data; 
   
@@ -117,7 +120,6 @@ using namespace ariel;
     /* loop down to find the leftmost leaf */
     while (current->left != NULL) 
         current = current->left; 
-  
     return current; 
 } 
     int Tree::size(){
@@ -206,11 +208,11 @@ using namespace ariel;
             {
                 if ((*foundI).data<i)
                 {
-                    foundI=(*foundI).left;
+                    foundI=(*foundI).right;
                 }
                 else
                 {
-                    foundI=(*foundI).right;
+                    foundI=(*foundI).left;
                 } 
             }
         if (foundI->left==NULL)
@@ -233,17 +235,17 @@ using namespace ariel;
              std::__throw_bad_exception ();
         }
     else
-        {
+        {       
             node *foundI=Root;
             while((*foundI).data!=i)
             {
                 if ((*foundI).data<i)
                 {
-                    foundI=(*foundI).left;
+                    foundI=(*foundI).right;
                 }
                 else
                 {
-                    foundI=(*foundI).right;
+                    foundI=(*foundI).left;
                 } 
             }
 
@@ -257,7 +259,8 @@ using namespace ariel;
 }  
     void Tree::print(){ 
         node *p=Root; 
-        printTreeRec(p);
+      // printTreeRec(p);
+
     }
     void Tree::printTreeRec(node *root) {
         if(!root) {
